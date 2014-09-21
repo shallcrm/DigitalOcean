@@ -6,6 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  config.omnibus.chef_version = :latest
+
   config.vm.provider :digital_ocean do |provider, override|
     override.ssh.private_key_path = "./digitalocean_vagrant_key"
     override.vm.box = "digital_ocean"
