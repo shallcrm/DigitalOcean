@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.omnibus.chef_version = :latest
+#  config.omnibus.chef_version = :latest
 
   config.vm.provider :digital_ocean do |provider, override|
     override.ssh.private_key_path = "./digitalocean_vagrant_key"
@@ -21,11 +21,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   end
   
-    
+  # Enable provisioning with shell scripts
+  #
+  config.vm.provision "shell" do |sh|
+    sh.path = "provision.sh"
+  end    
   
   
-  
-  # Disable automatic box update checking. If you disable this, then
+    # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
