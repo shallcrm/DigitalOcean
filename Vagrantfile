@@ -15,7 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     provider.image = "Ubuntu 14.04 x64"
     provider.region = "sgp1"
     provider.size = "512mb"
-  end
+	provider.ssh_key_name = "digitalocean_vagrant_key"
+
+	end
   
     
   
